@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import React from 'react';
+import PropTypes from 'prop-types';
 import './register.css';
 
 import {getEmail, getPassword} from '../../state/actions/register.action';
@@ -37,6 +38,12 @@ const Register = ({
 export const mapDispatchToProps = dispatch => ({
     sendEmail: val => dispatch(getEmail(val)),
     sendPassword: val => dispatch(getPassword(val)),
+});
+
+Register.propTypes = ({
+  sendEmail: PropTypes.func,
+  sendPassword: PropTypes.func,
 })
+
 
 export default connect(null, mapDispatchToProps)(Register);
